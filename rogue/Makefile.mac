@@ -1,0 +1,23 @@
+CC=gcc
+
+CFLAGS=-O3 -g -I/Users/bubble/c++/include/SDL
+LDFLAGS=-L/Users/bubble/c++/lib -lSDL -lSDL_image -lstdc++ -framework Cocoa
+
+OBJS = main.o \
+	view.o \
+	controller.o \
+	model.o \
+	sprite.o \
+
+all: SDLMain.o $(OBJS)
+	$(CC) -o test $(OBJS) SDLMain.o $(LDFLAGS)	
+
+clean:
+	rm -f *.o
+
+.cc.o:
+	$(CC) $(CFLAGS) -c $< 
+.m.o:
+	$(CC) $(CFLAGS) -c $< 
+.c.o:
+	$(CC) $(CFLAGS) -c $< 
