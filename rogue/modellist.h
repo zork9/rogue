@@ -3,13 +3,10 @@
 
 #include "model.h"
 
-struct modellistnode2 {};
+struct modellistnode2 { void *next; };
 typedef struct modellistnode2 ModelListNode2;
 
-struct modellistnode3 { ModelListNode2 next; };
-typedef struct modellistnode3 ModelListNode3;
-
-struct modellistnode { Model model; ModelListNode3 modellistnode; };
+struct modellistnode { Model model; ModelListNode2 modellistnode; };
 typedef struct modellistnode ModelListNode;
 
 class ModelList
