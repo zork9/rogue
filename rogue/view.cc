@@ -1,5 +1,5 @@
 #include "view.h"
-#include "model.h"
+#include "modellist.h"
 
 View::View()
 {
@@ -8,13 +8,25 @@ View::View()
 View::~View()
 {}
 
-void View::draw(SDL_Surface *screen, Model& model)
+void View::draw(SDL_Surface *screen, ModelList& modellist)
 {
-	SDL_Rect dest;
-	dest.x = model.getX();
-	dest.y = model.getY();	
 
-	SDL_BlitSurface(model.getSurface(), NULL, screen, &dest);
+	while (!modellist.isDone()) {
+
+		Model model(modellist.get());	
+
+		SDL_Rect dest;
+		dest.x = model.getX();
+		dest.y = model.getY();	
+
+		SDL_BlitSurface(modellist.get().getSurface(), NULL, screen, &dest);
+
+		modellist.next();
+
+	}
+
 	SDL_Flip(screen);
+
+
 }
 

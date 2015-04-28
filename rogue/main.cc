@@ -2,6 +2,7 @@
 #include <SDL_image.h>
 #include <string>
 
+#include "modellist.h"
 #include "sprite.h"
 #include "view.h"
 #include "controller.h"
@@ -17,7 +18,10 @@ int main(int argc, char *argv[])
 	Sprite sprite(spriteimage,0,0);
 	View view;
 
-	Controller controller(sprite, view);
+	ModelList modellist;
+	modellist.add(sprite);
+
+	Controller controller(modellist, view);
 
 	controller.updateView(screen);	
 

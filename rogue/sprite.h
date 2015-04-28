@@ -16,6 +16,7 @@ class Sprite : public Model
 		virtual void update(Observerlist *);
 		virtual void collide();
 
+		void setModelSurface(SDL_Surface *);
 	private:
 };
 

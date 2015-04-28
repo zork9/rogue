@@ -1,7 +1,7 @@
 CC=gcc
 
-CFLAGS=-O3 -g -I/usr/include/SDL
-LDFLAGS=-lSDL -lSDL_image -lstdc++
+CFLAGS=-O3 -g -I/usr/local/include/SDL
+LDFLAGS=-L/usr/local/lib -lstdc++ -lSDL -lSDL_image
 
 OBJS = main.o \
 	view.o \
@@ -9,6 +9,10 @@ OBJS = main.o \
 	model.o \
 	observerlist.o \
 	vertexlist.o \
+	scroll.o \
+	scrollinterface.o \
+	usescrollinterface.o \
+	modellist.o \
 	ailist.o \
 	sprite.o \
 	aisprite.o \

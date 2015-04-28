@@ -3,7 +3,7 @@
 
 #include <SDL.h>
 
-class Model;
+class ModelList;
 
 class View
 {
@@ -11,7 +11,7 @@ class View
 		View();
 		~View();
 
-		void draw(SDL_Surface *screen, Model& model);
+		void draw(SDL_Surface *screen, ModelList& model);
 
 	private:
 
