@@ -2,12 +2,13 @@
 #define _MODEL_LIST_ITER_
 
 #include "model.h"
-#include "modellistimp.h"
+class ModelList;
 
 class ModelListIter
 {
 	public:
 
+		ModelListIter(ModelList&);
 		ModelListIter();
 		~ModelListIter();
 
@@ -16,10 +17,10 @@ class ModelListIter
 		virtual bool isDone();
 	
 	protected:
-		ModelListImp *getModelListImp();
+		ModelList& getModelList();
 	
 	private:
-		ModelListImp *_imp;	
+		ModelList& _modellist;	
 		long _current;	
 
 };

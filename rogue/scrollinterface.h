@@ -2,7 +2,7 @@
 #define _SCROLL_INTERFACE_H_
 
 class Scroll;
-class UseScrollInterface;
+class ScrollInterfaceMagicMissile;
 
 class ScrollInterface
 {
@@ -10,6 +10,6 @@ class ScrollInterface
 		ScrollInterface();
 		~ScrollInterface();
 		
-		virtual void accept(UseScrollInterface *);
+		virtual void accept(ScrollInterfaceMagicMissile *) = 0;
 };
 #endif

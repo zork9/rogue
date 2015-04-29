@@ -8,6 +8,11 @@ ModelList::ModelList()
 ModelList::~ModelList()
 {}
 
+void ModelList::init()
+{
+	_modeliter = ModelListIter(*this);
+}
+
 void ModelList::add(Model& model)
 {
 	ModelListNode n;
@@ -48,3 +53,28 @@ long ModelList::count()
 {
 	return _count;	
 }
+
+ModelList ModelList::operator=(ModelList& l)
+{
+
+	if (l == *this)
+		return *this;
+
+	this->_modellist = l.modellist;
+	this->_modeliter = l.modeliter;
+	this->_count = l._count;
+
+}
+
+bool ModelList::operator==(ModelList& l)
+{
+
+	if (this->_modellist == l.modellist
+		&& this->_modeliter == l.modeliter
+		&& this->_count == l._count)
+		return true;
+	else
+		return false;
+}
+
+	

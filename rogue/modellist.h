@@ -17,6 +17,8 @@ class ModelList : public ModelListImp
 		ModelList();
 		~ModelList();
 
+		void init();
+
 		void add(Model&);
 		void remove(Model&);
 
@@ -32,6 +34,11 @@ class ModelList : public ModelListImp
 		ModelListIter _modeliter;
 
 		long _count;
+
+	public:
+		ModelList operator=(ModelList&);
+		bool operator==(ModelList&);
+
 };
 
 #endif

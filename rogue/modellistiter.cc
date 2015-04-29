@@ -1,7 +1,13 @@
 #include "modellistiter.h"
+#include "modellist.h"
+
+ModelListIter::ModelListIter(ModelList& list)
+	:_current(0), _modellist(list)
+{
+}
 
 ModelListIter::ModelListIter()
-	:_current(0), _imp()
+	:_current(0), _modellist()
 {
 }
 
@@ -11,7 +17,7 @@ ModelListIter::~ModelListIter()
 
 Model ModelListIter::get()
 {
-	return _imp->get();
+	return getModelList().get();
 }	
 
 void ModelListIter::next()
@@ -21,11 +27,11 @@ void ModelListIter::next()
 
 bool ModelListIter::isDone()
 {
-	return _current >= _imp->count();
+	return _current >= getModelList().count();
 	
 }
 
-ModelListImp *ModelListIter::getModelListImp()
+ModelList& ModelListIter::getModelList()
 {
-	return _imp;
+	return _modellist;
 }
