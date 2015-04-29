@@ -3,11 +3,11 @@
 
 class Scroll;
 
-class UseScrollInterface
+class ScrollInterfaceUse
 {
 	public:
-		UseScrollInterface();
-		~UseScrollInterface();
+		ScrollInterfaceUse();
+		~ScrollInterfaceUse();
 
 		void useScroll(Scroll *);
 };

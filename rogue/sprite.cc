@@ -27,4 +27,3 @@ void Sprite::setModelSurface(SDL_Surface *s)
 	this->setSurface(s);
 }
 
-}

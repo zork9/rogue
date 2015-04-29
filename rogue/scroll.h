@@ -2,7 +2,8 @@
 #define _SCROLL_H_
 
 #include "scrollinterface.h"
-class UseScrollInterface;
+class ScrollInterfaceUse;
+class ScrollImp;
 
 class Scroll : public ScrollInterface
 {
@@ -10,8 +11,13 @@ class Scroll : public ScrollInterface
 		Scroll();
 		~Scroll();
 
-		void accept(UseScrollInterface *);
+		virtual void accept(ScrollInterfaceUse *);
 
+	protected:
+		ScrollImp *getScrollImp();
+
+	private:
+		ScrollImp *_imp;
 };
 
 #endif

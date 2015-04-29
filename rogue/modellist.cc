@@ -1,9 +1,8 @@
 #include "modellist.h"
 
 ModelList::ModelList()
+	: _count(0), _modeliter(), _modellist()
 {
-	//_modellist.modellistnode.next = (ModelListNode)0;
-	_iter = _modellist;
 }
 
 ModelList::~ModelList()
@@ -11,8 +10,17 @@ ModelList::~ModelList()
 
 void ModelList::add(Model& model)
 {
-	_modellist.modellistnode.next = _modellist;
-	_modellist.model = model;
+	ModelListNode n;
+	n.model = model;
+	setNext(n);
+	_modellist = n;
+
+	_count ++;
+}
+
+void ModelList::setNext(ModelListNode& n)
+{
+	n.modellistnode.next = (void*)&_modellist;
 }
 
 void ModelList::remove(Model& model)
@@ -20,17 +28,23 @@ void ModelList::remove(Model& model)
 
 Model ModelList::get()
 {
-	return _iter.model;
+	return _modeliter.get();
 }
 
-Model ModelList::next()
+void ModelList::next()
 {
-	_iter = _modellist.next();
+	_modeliter.next();
 }
 
 bool ModelList::isDone()
 {
-	if (_iter.next == 0)
+	if (_modeliter.isDone())
 		return true;
 	else
 		return false;
+}
+
+long ModelList::count()
+{
+	return _count;	
+}

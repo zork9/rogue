@@ -9,10 +9,13 @@ OBJS = main.o \
 	model.o \
 	observerlist.o \
 	vertexlist.o \
+	scrollimp.o \
 	scroll.o \
 	scrollinterface.o \
-	usescrollinterface.o \
+	scrollinterfaceuse.o \
 	modellist.o \
+	modellistiter.o \
+	modellistimp.o \
 	ailist.o \
 	sprite.o \
 	aisprite.o \

@@ -2,6 +2,8 @@
 #define _MODEL_LIST_
 
 #include "model.h"
+#include "modellistimp.h"
+#include "modellistiter.h"
 
 struct modellistnode2 { void *next; };
 typedef struct modellistnode2 ModelListNode2;
@@ -9,7 +11,7 @@ typedef struct modellistnode2 ModelListNode2;
 struct modellistnode { Model model; ModelListNode2 modellistnode; };
 typedef struct modellistnode ModelListNode;
 
-class ModelList
+class ModelList : public ModelListImp
 {
 	public:
 		ModelList();
@@ -19,15 +21,17 @@ class ModelList
 		void remove(Model&);
 
 		Model get();
-		Model next();
+		void next();
 		bool isDone();
+		long count();
 		
+		void setNext(ModelListNode& n);
 
 	private:
-		ModelListNode _modellist;		
+		ModelListNode _modellist;
+		ModelListIter _modeliter;
 
-		ModelListNode _iter;
-
+		long _count;
 };
 
 #endif
