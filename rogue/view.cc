@@ -1,5 +1,6 @@
 #include "view.h"
 #include "modellist.h"
+#include "modellistiter.h"
 
 View::View()
 {

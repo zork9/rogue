@@ -9,15 +9,31 @@ struct modellistnode2 { void *next; };
 typedef struct modellistnode2 ModelListNode2;
 
 struct modellistnode { Model model; ModelListNode2 modellistnode; };
-typedef struct modellistnode ModelListNode;
+
+class ModelListNode
+{
+	public:
+		Model model;
+		ModelListNode2 modellistnode;
+
+	bool operator==(ModelListNode& n) {
+		if (n == *this)
+			return true;
+		
+		if (model == n.model && modellistnode.next == n.modellistnode.next)
+			return true;
+		else
+			return false;
+	}
+};
+	
 
 class ModelList : public ModelListImp
 {
 	public:
+		ModelList(ModelListIter&);
 		ModelList();
 		~ModelList();
-
-		void init();
 
 		void add(Model&);
 		void remove(Model&);

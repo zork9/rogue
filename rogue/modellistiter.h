@@ -8,7 +8,7 @@ class ModelListIter
 {
 	public:
 
-		ModelListIter(ModelList&);
+		ModelListIter(ModelList);
 		ModelListIter();
 		~ModelListIter();
 
@@ -22,6 +22,10 @@ class ModelListIter
 	private:
 		ModelList& _modellist;	
 		long _current;	
+
+	public:
+		ModelListIter& operator=(ModelListIter&);		
+		bool operator==(ModelListIter&);		
 
 };
 

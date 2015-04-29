@@ -22,6 +22,9 @@ class Model
 	private:
 		int x,y;
 		SDL_Surface *surface;
+
+	public:	
+		bool operator==(Model& m); 
 };
 
 #endif 

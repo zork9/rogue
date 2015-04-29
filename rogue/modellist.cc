@@ -1,5 +1,10 @@
 #include "modellist.h"
 
+ModelList::ModelList(ModelListIter& iter)
+	: _count(0), _modeliter(iter), _modellist()
+{
+}
+
 ModelList::ModelList()
 	: _count(0), _modeliter(), _modellist()
 {
@@ -7,11 +12,6 @@ ModelList::ModelList()
 
 ModelList::~ModelList()
 {}
-
-void ModelList::init()
-{
-	_modeliter = ModelListIter(*this);
-}
 
 void ModelList::add(Model& model)
 {
@@ -33,17 +33,17 @@ void ModelList::remove(Model& model)
 
 Model ModelList::get()
 {
-	return _modeliter.get();
+	return ModelListIter(*this).get();
 }
 
 void ModelList::next()
 {
-	_modeliter.next();
+	ModelListIter(*this).next();
 }
 
 bool ModelList::isDone()
 {
-	if (_modeliter.isDone())
+	if (ModelListIter(*this).isDone())
 		return true;
 	else
 		return false;
@@ -60,18 +60,18 @@ ModelList ModelList::operator=(ModelList& l)
 	if (l == *this)
 		return *this;
 
-	this->_modellist = l.modellist;
-	this->_modeliter = l.modeliter;
-	this->_count = l._count;
+	_modellist = l._modellist;
+	_modeliter = l._modeliter;
+	_count = l._count;
 
 }
 
 bool ModelList::operator==(ModelList& l)
 {
 
-	if (this->_modellist == l.modellist
-		&& this->_modeliter == l.modeliter
-		&& this->_count == l._count)
+	if (_modellist == l._modellist
+		&& _modeliter == l._modeliter
+		&& _count == l._count)
 		return true;
 	else
 		return false;

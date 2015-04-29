@@ -2,6 +2,7 @@
 #define _MODEL_LIST_IMP_
 
 #include "model.h"
+class ModelListIter;
 
 class ModelListImp
 {

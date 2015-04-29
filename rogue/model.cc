@@ -49,4 +49,15 @@ int Model::getY()
 {
 	return y;
 }
+	
+bool Model::operator==(Model& m) 
+{
+		if (m == *this)
+			return true;
+		
+		if (x == m.x && y == m.y && surface == m.surface)
+			return true;
+		else
+			return false;
+}
 

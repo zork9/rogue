@@ -19,7 +19,6 @@ int main(int argc, char *argv[])
 	View view;
 
 	ModelList modellist;
-	modellist.init();
 	modellist.add(sprite);
 
 	Controller controller(modellist, view);
