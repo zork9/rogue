@@ -1,6 +1,6 @@
 #include "scroll.h"
 #include "scrollimp.h"
-#include "scrollinterfaceuse.h"
+#include "scrollinterfacemagicmissile.h"
 
 Scroll::Scroll()
 {}
@@ -8,9 +8,9 @@ Scroll::Scroll()
 Scroll::~Scroll()
 {}
 
-void Scroll::accept(ScrollInterfaceUse *scrolli)
+void Scroll::accept(ScrollInterfaceMagicMissile *s)
 {
-	scrolli->useScroll(this);
+	s->useScroll(this);
 }
 
 ScrollImp *Scroll::getScrollImp()

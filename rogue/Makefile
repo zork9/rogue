@@ -11,8 +11,9 @@ OBJS = main.o \
 	vertexlist.o \
 	scrollimp.o \
 	scroll.o \
+	scrollmagicmissile.o \
 	scrollinterface.o \
-	scrollinterfaceuse.o \
+	scrollinterfacemagicmissile.o \
 	modellist.o \
 	modellistiter.o \
 	modellistimp.o \
